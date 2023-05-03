@@ -1,0 +1,38 @@
+<div class="container">
+	<div class="search-wrapper">
+		<mat-form-field appearance="outline" class="input-search">
+			<mat-label>Search</mat-label>
+			<input matInput type="text" (keyup)="filterSubject.next()" [(ngModel)]="filterStr" #input />
+			<mat-icon matSuffix>search</mat-icon>
+		</mat-form-field>
+	</div>
+	<div class="filter">
+		<div>
+			<p class="filter__description">Filter by type:</p>
+		</div>
+		<div class="filter__options">
+			<button *ngFor="let option of options" class="button filter__option" [class.normal]="option === 'normal'"
+				[class.fire]="option === 'fire'" [class.water]="option === 'water'" [class.electric]="option === 'electric'"
+				[class.grass]="option === 'grass'" [class.ice]="option === 'ice'" [class.fighting]="option === 'fighting'"
+				[class.poison]="option === 'poison'" [class.ground]="option === 'ground'" [class.flying]="option === 'flying'"
+				[class.psychic]="option === 'psychic'" [class.bug]="option === 'bug'" [class.rock]="option === 'rock'"
+				[class.ghost]="option === 'ghost'" [class.dragon]="option === 'dragon'" [class.dark]="option === 'dark'"
+				[class.steel]="option === 'steel'" [class.fairy]="option === 'fairy'" (click)="setActiveType(option)"
+				[class.filter__option]="true" [class.is-active]="activeType===option" value="{{option}}" data-type="{{option}}">
+				{{ option }}
+			</button>
+		</div>
+	</div>
+	<div class="pokemons-wrapper">
+		<div class="pokemon" *ngFor="let pokemon of pokemons">
+			<app-pokemon-card (keyup)="filterSubject.next()" [id]="pokemon.name"></app-pokemon-card>
+		</div>
+	</div>
+	<div class="paginator-wrapper">
+		<div class="paginator">
+			<mat-paginator (page)="handlePageEvent($event)" [pageSizeOptions]="[20, 50, 100]" [length]="length"
+				[pageIndex]="pageIndex" [pageSize]="pageSize" aria-label="Select page">
+			</mat-paginator>
+		</div>
+	</div>
+</div>

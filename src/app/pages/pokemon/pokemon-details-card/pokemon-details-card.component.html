@@ -1,0 +1,25 @@
+<div *ngIf="pokemon && specie">
+	<mat-card class="details-container">
+		<h2>{{ pokemon.name | capitalizeAllText }}</h2>
+		<div class="details-wrapper">
+			<ul class="details-list">
+				<li>
+					<div class="name">Species:</div>
+					<div class="value">{{ species | capitalizeAllText }}</div>
+				</li>
+				<li>
+					<div class="name">Abilities:</div>
+					<div class="value">{{ abilities | capitalizeAllText }} </div>
+				</li>
+				<li>
+					<div class="name">Height:</div>
+					<div class="value">{{ height }} m</div>
+				</li>
+				<li>
+					<div class="name">Weight:</div>
+					<div class="value">{{ weight }} kg</div>
+				</li>
+			</ul>
+		</div>
+	</mat-card>
+</div>

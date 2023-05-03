@@ -1,0 +1,22 @@
+.body-wrapper {
+	min-height: calc(100vh - 70px);
+	height: auto;
+	overflow: auto;
+}
+.close {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	margin: 10px;
+}
+.body {
+	margin: 0.5rem 1rem;
+	display: flex;
+	flex-direction: column;
+}
+.container {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 100vh;
+}

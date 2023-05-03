@@ -1,0 +1,24 @@
+<div *ngIf="pokemon">
+	<mat-card class="pokemon-container" routerLink="/pokemons/{{ pokemon.name }}">
+		<div class="pokemon-img-container">
+			<div class="circle">
+				<img src="{{ getPokemonImage(pokemon) }}" alt="" />
+			</div>
+		</div>
+		<div class="pokemon-data-container">
+			<div class="pokemon-label-container">
+				<span class="id">ID: {{ pokemon.id | number : '' }}</span>
+				<span class="name">{{ pokemon.name | capitalizeAllText }}</span>
+			</div>
+			<div class="pokemon-type-container">
+				<div class="box" *ngFor="let type of pokemon.types" [ngStyle]="{
+						'background-color': poke.getPokemonTypeColor(type.type.name)
+					}">
+					<span [id]="type.type.name">
+						{{ type.type.name.charAt(0).toUpperCase() + type.type.name.slice(1) }}
+					</span>
+				</div>
+			</div>
+		</div>
+	</mat-card>
+</div>
